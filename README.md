@@ -10,3 +10,4 @@
 * Screen shot
     - mission_to_mars_web_app.pdf - Web App screen shot and description
     - mongodb_structure.png - mongo db structure
+    - Scraping_screenshot.pdf -  Jupyter notebook screen shots
