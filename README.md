@@ -8,4 +8,5 @@
     - Missions_to_Mars\static\styles\style.css - stylesheet file for the web app
 
 * Screen shot
-    - mission_to_mars_web_app.pdf
+    - mission_to_mars_web_app.pdf - Web App screen shot and description
+    - mongodb_structure.png - mongo db structure
