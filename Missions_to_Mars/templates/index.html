@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="static/styles/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <title>Scrape Mars</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert_message">
+                    <span class="closebtn" onClick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>{{ messages[0] }}</strong>
+                </div>
+            {% endif %}
+        {% endwith %}
+        <div class="container_box">
+            <img src="{{ data.featured_image_url }}" class="featured_img" />
+            <div class="center_text">Mission to Mars</div>
+            <div class="center_button">
+                <a href="/scrape">
+                    <button class="button" style="vertical-align:middle">
+                        <span>Scrape New Data</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_news">
+                <div class="titles"><h2>Latest Mars News</h2></div>
+                <div><hr></div>
+                <div><h3 class="news_title">{{ data.news_title }}</h3></div>
+                <div>{{ data.news_paragraph }}</div>
+            </div>
+            <div class="column_table">
+                <div class="titles"><h2>MARS PLANET PROFILE</h2></div>
+                <div><hr></div>
+                <div>{{ data.table|safe }}</div>
+            </div>
+        </div>
+        {% for image in data.hemisphere_image_urls %}
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="{{ image.img_url }}">
+                    <img src="{{ image.img_url }}" width="600" height="400" />
+                </a>
+                <div class="desc"><h3 class="hemisphere">{{ image.title }}</h3></div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="clearfix"></div>
+    </body>
+</html>
